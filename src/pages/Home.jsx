@@ -1,5 +1,28 @@
+import { Link } from 'react-router-dom';
+import pfp from '../assets/red.jpg';
+
 const Home = () => {
-    return <h1>Home</h1>;
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className="text-center space-y-6">
+                <img src={pfp} alt="Profile Photo" className="w-40 h-50 rounded-4xl object-cover mx-auto" />
+                <h1 className="text-5xl font-bold text-gray-900">
+                    Jack Lucas
+                </h1>
+                <p className="text-xl text-gray-500">
+                    Software Developer | Mathematician | Student
+                </p>
+                <div className="flex gap-4 justify-center">
+                    <Link to="/about" className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                        About Me
+                    </Link>
+                    <Link to="/projects" className="px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                        My Work
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Home;

@@ -77,8 +77,8 @@ const About = () => {
                     content: "Configured an appropriate mixture of group instruction and individual work or exploration time so that students could complete comprehensive final projects to take home at the end of the week."
                 },
                 {
-                    title: "Quality Assurance",
-                    content: "Debugged numerous errors in code from typos, to logic or control flaws, to version dependency issues."
+                    title: "Debugging",
+                    content: "Analyzed and corrected numerous errors in code from typos, to logic or control flaws, to version dependency issues."
                 },
                 {
                     title: "Safety and Organization",

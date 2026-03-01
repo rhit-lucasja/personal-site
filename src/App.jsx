@@ -9,24 +9,33 @@ import Login from './pages/mm/Login';
 import Admin from './pages/mm/Admin';
 import Navbar from './components/Navbar';
 import Content from './components/Content'
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Content>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/mm/bracket" element={<Bracket />} />
-          <Route path="/mm/picks" element={<Picks />} />
-          <Route path="/mm/leaderboard" element={<Leaderboard />} />
-          <Route path="/mm/login" element={<Login />} />
-          <Route path="/mm/admin" element={<Admin />} />
-        </Routes>
-      </Content>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Content>
+          <Routes>
+            {/* portfolio routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+
+            {/* public March Madness routes */}
+            <Route path="/mm/bracket" element={<Bracket />} />
+            <Route path="/mm/picks" element={<Picks />} />
+            <Route path="/mm/leaderboard" element={<Leaderboard />} />
+            <Route path="/mm/login" element={<Login />} />
+
+            {/* private March Madness admin route */}
+            <Route path="/mm/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+          </Routes>
+        </Content>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 

@@ -36,7 +36,7 @@ const Card = ({ title, tldr, intro, body, img }) => {
                         <div className="mt-2 overflow-hidden">
                             {/* image within the info card, if provided */}
                             {img && (
-                                <img src={img} alt={title} className="float-right max-h-72 object-contain rounded-lg ml-4 mb-2" />
+                                <img src={img} alt={title} className="float-right max-w-1/3 max-h-72 object-contain rounded-lg ml-4 mb-2" />
                             )}
 
                             {/* text within the info card */}

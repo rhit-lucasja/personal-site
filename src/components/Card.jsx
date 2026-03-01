@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Bullets from './Bullets'
+import Bullet from './Bullet'
 
 const Card = ({ title, tldr, intro, body, img }) => {
     
@@ -7,14 +7,14 @@ const Card = ({ title, tldr, intro, body, img }) => {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <div onClick={() => setIsActive(!isActive)} className="cursor-pointer border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
+        <div className="border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
             <h2 className="text-xl font-bold text-black">
                 {title}
             </h2>
 
             {/* if card is collapsed */}
             {!isActive && (
-                <div className="mt-2 ml-6 text-gray-500">
+                <div className="mt-2 ml-6 text-gray-800">
                     {/* bullet points in the short desc */}
                     {tldr.map((datum, idx) => (
                         <li key={idx}>
@@ -26,23 +26,32 @@ const Card = ({ title, tldr, intro, body, img }) => {
 
             {/* if card is expanded */}
             {isActive && (
-                <div className="mt-2 space-y-4">
-                    {/*<p className="text-gray-700">
-                        {body}
-                    </p>
+                <div className="mt-2 overflow-hidden">
+                    {/* image within the info card, if provided */}
                     {img && (
-                        <img src={img} alt={title} className="w-full rounded-lg object-cover" />
-                    )}*/}
-                    <p className="text-gray-700">
-                        {intro}
-                    </p>
-                    <div className="ml-6">
-                        {body.map((datum, idx) => (
-                            <Bullets key={idx} {...datum} />
-                        ))}
+                        <img src={img} alt={title} className="float-right max-h-72 object-contain rounded-lg ml-4 mb-2" />
+                    )}
+
+                    {/* text within the info card */}
+                    <div className="text-gray-800">
+                        <p>
+                            {intro}
+                        </p>
+                        <div className="ml-6">
+                            {body.map((datum, idx) => (
+                                <Bullet key={idx} {...datum} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
+
+            {/* button to expand/collapse */}
+            <div className="flex justify-center mt-4">
+                <button onClick={() => setIsActive(!isActive)} className="cursor-pointer text-gray-400 hover:text-red-900 transition-all text-xl">
+                    {isActive ? '⮝' : '⮟'}
+                </button>
+            </div>
         </div>
     );
 };

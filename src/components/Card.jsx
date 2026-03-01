@@ -1,11 +1,30 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Bullet from './Bullet'
+import upArrow from '../assets/up.jpg'
+import upArrowHover from '../assets/up_hover.jpg'
+import downArrow from '../assets/down.jpg'
+import downArrowHover from '../assets/down_hover.jpg'
 
 const Card = ({ title, tldr, intro, body, img }) => {
     
     // state for if card is open or closed
     const [isActive, setIsActive] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+    let arrow;
+    if (isActive) {
+        if (isHovering) {
+            arrow = upArrowHover;
+        } else {
+            arrow = upArrow;
+        }
+    } else {
+        if (isHovering) {
+            arrow = downArrowHover;
+        } else {
+            arrow = downArrow;
+        }
+    }
 
     return (
         <div className="border border-gray-200 rounded-xl p-6 transition-all duration-300 hover:shadow-lg">
@@ -57,8 +76,10 @@ const Card = ({ title, tldr, intro, body, img }) => {
 
             {/* button to expand/collapse */}
             <div className="flex justify-center mt-4">
-                <button onClick={() => setIsActive(!isActive)} className="cursor-pointer text-gray-400 hover:text-red-900 transition-all text-xl">
-                    {isActive ? '⮝' : '⮟'}
+                <button onClick={() => setIsActive(!isActive)} className="cursor-pointer transition-all"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}>
+                    <img src={arrow} className="w-5 rounded-full" />
                 </button>
             </div>
         </div>

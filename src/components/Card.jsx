@@ -76,9 +76,7 @@ const Card = ({ title, tldr, intro, body, img }) => {
 
             {/* button to expand/collapse */}
             <div className="flex justify-center mt-4">
-                <button onClick={() => setIsActive(!isActive)} className="cursor-pointer transition-all"
-                    onMouseEnter={() => setIsHovering(true)}
-                    onMouseLeave={() => setIsHovering(false)}>
+                <button onClick={() => setIsActive(!isActive)} className="cursor-pointer transition-all" onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
                     <img src={arrow} className="w-5 rounded-full" />
                 </button>
             </div>

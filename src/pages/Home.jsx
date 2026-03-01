@@ -3,7 +3,7 @@ import pfp from '../assets/red.jpg';
 
 const Home = () => {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-white">
+        <div className="flex-1 flex items-center justify-center bg-white">
             {/* Tagline & Links */}
             <div className="relative text-center space-y-4">
                 <img src={pfp} alt="Profile Photo" className="w-40 h-50 rounded-4xl object-cover mx-auto" />

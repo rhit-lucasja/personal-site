@@ -91,7 +91,7 @@ const About = () => {
 
     // render the different info cards
     return (
-        <div className="py-8 px-8 space-y-4">
+        <div className="flex-1 py-8 px-8 space-y-4">
             <h1 className="text-4xl font-bold text-black mb-8">
                 About Me
             </h1>

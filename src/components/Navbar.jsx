@@ -6,6 +6,7 @@ const Navbar = () => {
             <Link to="/" className="hover:text-gray-400 transition-colors">Home</Link>
             <Link to="/about" className="hover:text-gray-400 transition-colors">About</Link>
             <Link to="/projects" className="hover:text-gray-400 transition-colors">Projects</Link>
+            <Link to="/mm/bracket" className="hover:text-gray-400 transition-colors">March Madness</Link>
         </nav>
     );
 };

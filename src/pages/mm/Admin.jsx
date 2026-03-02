@@ -1,7 +1,11 @@
 
 
 const Admin = () => {
-    return <h1>Admin Dashboard</h1>;
+    return (
+        <div>
+            <h1>Admin Dashboard</h1>
+        </div>
+    );
 };
 
 export default Admin;

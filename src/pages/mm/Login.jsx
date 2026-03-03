@@ -59,7 +59,7 @@ const Login = () => {
                         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border border-gray-300 rounded-lg px-2 py-2 focus:border-2 focus:border-black" />
                     </div>
                     {/* login button */}
-                    <button onClick={handleLogin} className="w-full bg-red-900 text-white py-2 rounded-lg hover:bg-red-400 transition-colors">
+                    <button onClick={handleLogin} className="cursor-pointer w-full bg-red-900 text-white py-2 rounded-lg hover:bg-red-400 transition-colors">
                         Login
                     </button>
                 </div>

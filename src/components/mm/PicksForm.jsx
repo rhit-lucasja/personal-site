@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 import BracketGamePicks from '../mm/BracketGamePicks';
+import BracketDisplay from '../mm/BracketDisplay';
 import { getSubsequentGames } from '../../utils/bracketStructure';
 
 const PicksForm = () => {
@@ -88,7 +89,7 @@ const PicksForm = () => {
                 <label className="font-medium text-gray-700">
                     Participant:
                 </label>
-                <select value={selectedParticipant} onChange={(e) => setSelectedParticipant(e.target.value)} className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700">
+                <select value={selectedParticipant || ""} onChange={(e) => setSelectedParticipant(e.target.value)} className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700">
                     <option value="">Select a participant</option>
                     {Object.values(participants).map(p => (
                         <option key={p.id} value={p.id}>

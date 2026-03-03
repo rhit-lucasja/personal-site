@@ -4,7 +4,7 @@ const BracketGame = ({ game }) => {
 
     // if game is null return blank box
     if (!game) {
-        return <div className="h-16 border border-gray-200 rounded-lg" />;
+        return <div className="min-w-0 w-full border border-gray-200 rounded-lg" />;
     }
 
     // else parse the different fields from the game

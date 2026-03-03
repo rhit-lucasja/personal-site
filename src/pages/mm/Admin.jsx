@@ -20,7 +20,7 @@ const Admin = () => {
 
             {/* header */}
             <div className="flex justify-between items-center">
-                <h1 className="text-4xl font-bold text-black">
+                <h1 className="text-3xl font-bold text-black">
                     Admin Dashboard
                 </h1>
                 <button onClick={handleLogout} className="px-4 py-2 rounded-lg text-white bg-red-900 hover:bg-red-400 transition-colors cursor-pointer">

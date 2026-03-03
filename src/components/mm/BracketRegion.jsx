@@ -1,8 +1,6 @@
-import BracketGame from './BracketGame';
-
 const rounds = [1, 2, 3, 4];
 
-const BracketRegion = ({ label, games, order, mirrored }) => {
+const BracketRegion = ({ label, games, order, mirrored, renderGame }) => {
     // group games by round
     const byRound = rounds.reduce((acc, round) => {
         acc[round] = games.filter(g => g.round === round);
@@ -24,9 +22,7 @@ const BracketRegion = ({ label, games, order, mirrored }) => {
 
                         {/* displays game cards for this round & region */}
                         <div key={round} className="flex flex-col justify-around gap-2 flex-1">
-                            {byRound[round].map(game => (
-                                <BracketGame key={game.id} game={game} />
-                            ))}
+                            {byRound[round].map(game => renderGame(game))}
                         </div>
                     </div>
                 ))}

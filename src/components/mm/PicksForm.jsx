@@ -1,24 +1,8 @@
 import { useState, useEffect } from 'react';
 import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
-import BracketRegion from '../mm/BracketRegion';
 import BracketGamePicks from '../mm/BracketGamePicks';
-import BracketGame from '../mm/BracketGame';
 import { getSubsequentGames } from '../../utils/bracketStructure';
-
-const region_tags = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-const region_labels = {
-    'top-left': 'Top Left',
-    'top-right': 'Top Right',
-    'bottom-right': 'Bottom Right',
-    'bottom-left': 'Bottom Left'
-}
-const region_order = {
-    'top-left': 'order-1 lg:order-1',
-    'top-right': 'order-3 lg:order-2',
-    'bottom-left': 'order-2 lg:order-3',
-    'bottom-right': 'order-4 lg:order-4'
-}
 
 const PicksForm = () => {
     // states to track changes in form
@@ -29,8 +13,108 @@ const PicksForm = () => {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
 
-    
+    // fetch participants and games from Firebase
+    useEffect(() => {
+        // retrieves participant documents
+        const unsubParticipants = onSnapshot(collection(db, 'participants'), snapshot => {
+            const data = {};
+            snapshot.forEach(doc => {
+                data[doc.id] = { id: doc.id, ...doc.data() };
+            });
+            setParticipants(data);
+        });
+        // retrieves game documents
+        const unsubGames = onSnapshot(collection(db, 'bracket'), snapshot => {
+            const data = {};
+            snapshot.forEach(doc => {
+                data[doc.id] = { id: doc.id, ...doc.data() };
+            });
+            setGames(data);
+            setLoading(false); // once done with this, bracket form can be filled out
+        });
+        // for cleanup
+        return () => {
+            unsubParticipants();
+            unsubGames();
+        };
+    }, []);
 
+    // clear subsequent games after a game in form is changed
+    const handlePickChange = (gameID, value) => {
+        setPicks(prev => {
+            const successors = getSubsequentGames(gameID);
+            const cleared = successors.reduce((acc, id) => {
+                acc[id] = null;
+                return acc;
+            }, {});
+            // write original picks, then overwrite with cleared, then with current pick
+            return { ...prev, ...cleared, [gameID]: value };
+        });
+    };
+
+    // handler for submitting the picks form
+    const handleSubmit = async () => {
+        if (!selectedParticipant) return; // if no one selected then can't update
+        setSaving(true); // flag that we're in process of writing to Firebase
+        try {
+            await updateDoc(doc(db, 'participants', selectedParticipant), {picks});
+        } catch (err) {
+            console.error(err);
+            alert('Error saving picks.');
+        }
+        setSaving(false); // finished Firebase update
+    };
+
+    // handler to get the games in a particular region
+    const getRegionGames = (region) =>
+        Object.values(games).filter(g => g.region === region);
+
+    // util to display an interactive game form
+    const renderGame = (game) => (
+        <BracketGamePicks key={game.id} game={game} picks={picks} onPickChange={handlePickChange} />
+    );
+
+    // upon page buffer
+    if (loading) return <div className="text-center mt-16 text-black">
+        Loading bracket...
+    </div>
+
+    // now time to actually render the bracket and picks form
+    return (
+        <div className="space-y-6">
+
+            {/* select which participant to enter picks for */}
+            <div className="flex items-center gap-4">
+                <label className="font-medium text-gray-700">
+                    Participant:
+                </label>
+                <select value={selectedParticipant} onChange={(e) => setSelectedParticipant(e.target.value)} className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700">
+                    <option value="">Select a participant</option>
+                    {Object.values(participants).map(p => (
+                        <option key={p.id} value={p.id}>
+                            {p.name}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            {/* bracket/picks form - only displays when a participant has been selected */}
+            {selectedParticipant && (
+                <>
+                    {/* bracket */}
+                    <BracketDisplay games={games} renderGame={renderGame} />
+
+                    {/* form submit button */}
+                    <div className="flex justify-end">
+                        <button onClick={handleSubmit} disabled={saving} className="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-400 transition-colors disabled:opacity-50">
+                            {saving ? 'Saving...' : 'Submit Picks'}
+                        </button>
+                    </div>
+                </>
+            )}
+
+        </div>
+    );
 };
 
 export default PicksForm;

@@ -69,19 +69,19 @@ export const getPreviousGames = (gameID) => {
     // else find offset within region
     let offset;
     let adjustment;
-    if (num <= 14) {
+    if (num <= 15) {
         // top-left
         offset = num;
         adjustment = 0;
-    } else if (num <= 29) {
+    } else if (num <= 30) {
         // top-right
         offset = num - 15;
         adjustment = 15;
-    } else if (num <= 44) {
+    } else if (num <= 45) {
         // bottom-right
         offset = num - 30;
         adjustment = 30;
-    } else if (num <= 59) {
+    } else if (num <= 60) {
         // bottom-left
         offset = num - 45;
         adjustment = 45;
@@ -111,10 +111,21 @@ export const getPreviousGames = (gameID) => {
     return [null, null];
 };
 
-// given the current form picks state and gameID, returns the two available options for that game
-export const getPickOptions = (picks, gameID) => {
+// given current picks state and gameID, determines what two teams are facing each other in later rounds
+export const getMatchup = (picks, gameID, bracketGames) => {
+    // get appropriate game document in Firestore
+    const game = bracketGames[gameID];
+    if (!game) return [null, null];
+
+    // round 1 games should have matchup from Firestore
+    if (game.round === 1) {
+        return [game.team1, game.team2];
+    }
+
+    // later round games come from current picks
     const [opt1, opt2] = getPreviousGames(gameID);
-    if (!opt1 || !opt2) return [null, null]; // error in finding previous games
-    // else return winners of previous games (if decided)
-    return [picks[opt1] || null, picks[opt2] || null];
-}
+    return [
+        picks[opt1] || null,
+        picks[opt2] || null
+    ];
+};

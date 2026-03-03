@@ -1,6 +1,6 @@
-import { getPickOptions } from '../../utils/bracketStructure';
+import { getMatchup, getSubsequentGames } from '../../utils/bracketStructure';
 
-const BracketGamePicks = ({ game, picks, onPickChange }) => {
+const BracketGamePicks = ({ game, picks, onPickChange, bracketGames }) => {
 
     // if game is null return blank box
     if (!game) {
@@ -8,36 +8,37 @@ const BracketGamePicks = ({ game, picks, onPickChange }) => {
     }
 
     // else parse relevant game fields
-    const { id, team1, team2, round } = game;
+    const { id, round } = game;
+    // get the matchup for this game slot
+    const [team1, team2] = (round === 1 ? [game.team1, game.team2] : getMatchup(picks, id, bracketGames));
+    
+    // flags for the current game's matchup
+    const bothKnown = team1 && team2;
+    const currentPick = picks[id] || null;
 
-    // round 1 games are fixed
-    if (round === 1) {
-        return (
-            <div className="min-w-0 w-full border border-gray-200 rounded-lg p-2 space-y-1">
-                <div title={team1} className="text-sm px-2 py-1 rounded truncate text-black">
-                    {team1 || <span className="text-gray-400">TBD</span>}
-                </div>
-                <div title={team2} className="text-sm px-2 py-1 rounded truncate text-black">
-                    {team2 || <span className="text-gray-400">TBD</span>}
-                </div>
-            </div>
-        );
-    }
+    // handle interaction with a team name
+    const handleClick = (team) => {
+        if (!bothKnown) return; // matchup not decided, so can't choose winner
+        if (currentPick === team) return; // team already selected, no changes
+        onPickChange(id, team); // register pick "team" for game corresponding to 'id'
+    };
 
-    // else get pick options for later games and spawn dropdown
-    const [op1, op2] = getPickOptions(picks, id);
-    const hasOptions = op1 && op2;
-    const currentPick = picks[id] || "";
+    // determines team name display based on pick status
+    const getTeamStyle = (team) => {
+        if (!bothKnown) return 'bg-gray-100 text-gray-400';
+        if (!currentPick) return 'text-black cursor-pointer hover:bg-green-200';
+        if (currentPick === team) return 'bg-green-400 text-black cursor-pointer hover:bg-green-200';
+        return 'text-gray-500 cursor-pointer hover:bg-green-200';
+    };
 
     return (
         <div className="min-w-0 w-full overflow-hidden border border-gray-200 rounded-lg p-2 space-y-1">
-            <select value={currentPick} disabled={!hasOptions} onChange={(e) => onPickChange(id, e.target.value)} className="w-full text-sm text-gray-500 border-node outline-none bg-transparent cursor-pointer disabled:text-gray-300 disabled:cursor-not-allowed">
-                <option value="">
-                    {hasOptions ? 'Select winner' : '-'}
-                </option>
-                {hasOptions && <option value={option1}>{option1}</option>}
-                {hasOptions && <option value={option2}>{option2}</option>}
-            </select>
+            <div title={team1} onClick={() => handleClick(team1)} className={`text-sm px-2 py-1 rounded truncate transition-colors ${getTeamStyle(team1)}`}>
+                {team1 || <span className="text-gray-400">TBD</span>}
+            </div>
+            <div title={team2} onClick={() => handleClick(team2)} className={`text-sm px-2 py-1 rounded truncate transition-colors ${getTeamStyle(team2)}`}>
+                {team2 || <span className="text-gray-400">TBD</span>}
+            </div>
         </div>
     );
 };

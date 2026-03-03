@@ -72,7 +72,7 @@ const PicksForm = () => {
 
     // util to display an interactive game form
     const renderGame = (game) => (
-        <BracketGamePicks key={game.id} game={game} picks={picks} onPickChange={handlePickChange} />
+        <BracketGamePicks key={game.id} game={game} picks={picks} onPickChange={handlePickChange} bracketGames={games} />
     );
 
     // upon page buffer
@@ -87,9 +87,9 @@ const PicksForm = () => {
             {/* select which participant to enter picks for */}
             <div className="flex items-center gap-4">
                 <label className="font-medium text-gray-700">
-                    Participant:
+                    Entering Picks For:
                 </label>
-                <select value={selectedParticipant || ""} onChange={(e) => setSelectedParticipant(e.target.value)} className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700">
+                <select value={selectedParticipant || ""} onChange={(e) => setSelectedParticipant(e.target.value)} className="border border-gray-300 rounded-lg px-4 py-2 text-gray-700 cursor-pointer">
                     <option value="">Select a participant</option>
                     {Object.values(participants).map(p => (
                         <option key={p.id} value={p.id}>
@@ -106,8 +106,8 @@ const PicksForm = () => {
                     <BracketDisplay games={games} renderGame={renderGame} />
 
                     {/* form submit button */}
-                    <div className="flex justify-end">
-                        <button onClick={handleSubmit} disabled={saving} className="px-6 py-3 bg-red-900 text-white rounded-lg hover:bg-red-400 transition-colors disabled:opacity-50">
+                    <div className="flex justify-center">
+                        <button onClick={handleSubmit} disabled={saving} className="px-6 py-3 bg-red-900 text-white rounded-lg cursor-pointer hover:bg-red-400 transition-colors disabled:opacity-50">
                             {saving ? 'Saving...' : 'Submit Picks'}
                         </button>
                     </div>

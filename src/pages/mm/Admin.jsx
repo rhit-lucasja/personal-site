@@ -12,7 +12,7 @@ const Admin = () => {
     // handle logout from admin page
     const handleLogout = async () => {
         await signOut(auth);
-        navigate('/mm/bracket');
+        navigate('/mm/login');
     };
 
     return (
@@ -20,20 +20,20 @@ const Admin = () => {
 
             {/* header */}
             <div className="flex justify-between items-center">
-                <h1 className="text-3xl font-bold text-black">
+                <h1 className="text-4xl font-bold text-black">
                     Admin Dashboard
                 </h1>
-                <button onClick={handleLogout} className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors">
+                <button onClick={handleLogout} className="px-4 py-2 rounded-lg text-white bg-red-900 hover:bg-red-400 transition-colors cursor-pointer">
                     Logout
                 </button>
             </div>
 
             {/* tab selection */}
             <div className="flex gap-4 border-b border-gray-200">
-                <button onClick={() => setActiveTab('picks')} className={`pb-2 px-1 text-sm transition-colors ${activeTab === 'picks' ? 'border-b-2 border-black text-black' : 'text-gray-400 hover:text-gray-700'}`}>
+                <button onClick={() => setActiveTab('picks')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'picks' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
                     Picks Entry
                 </button>
-                <button onClick={() => setActiveTab('bracket')} className={`pb-2 px-1 text-sm transition-colors ${activeTab === 'bracket' ? 'border-b-2 border-black text-black' : 'text-gray-400 hover:text-gray-700'}`}>
+                <button onClick={() => setActiveTab('bracket')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'bracket' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
                     Bracket Setup
                 </button>
             </div>

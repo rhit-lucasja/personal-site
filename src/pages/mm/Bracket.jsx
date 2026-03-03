@@ -57,25 +57,21 @@ const Bracket = () => {
             {/* display regions, 2 on each side for desktop, stacked on mobile */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {region_tags.map(region => (
-                    <BracketRegion key={region} label={region_labels[region]} games={getRegionGames(region)} order={region_order[region]} />
+                    <BracketRegion key={region} label={region_labels[region]} games={getRegionGames(region)} order={region_order[region]} mirrored={region.endsWith('right')}/>
                 ))}
             </div>
 
             {/* final four and championship */}
             <div className="border border-gray-200 rounded-xl p-4 space-y-4">
-                <h2 className="text-lg font-bold text-black">
-                    Final Four & Championship
-                </h2>
-                <div className="flex gap-4 justify-center items-center">
+                <h2 className="text-lg font-bold text-black text-center">Final Four</h2>
+                <div className="max-w-128 mx-auto flex gap-4 justify-center items-center">
                     <BracketGame game={finalFourLeft} />
                     <div className="text-gray-400 font-bold">VS</div>
                     <BracketGame game={finalFourRight} />
                 </div>
                 <div className="flex justify-center">
-                    <div className="w-48">
-                        <p className="text-xs text-gray-400 text-center mb-2">
-                            Championship
-                        </p>
+                    <div className="w-48 space-y-4">
+                        <h2 className="text-lg font-bold text-black text-center">Championship</h2>
                         <BracketGame game={championship} />
                     </div>
                 </div>

@@ -32,11 +32,11 @@ const PickCell = ({ pick, winner, eliminated }) => {
     };
 
     return (
-        <id className="px-3 py-2 text-center text-sm">
+        <td className="px-1 py-1 text-center text-sm">
             <span className={`px-2 py-1 rounded truncate block ${styles[status]}`}>
                 {pick || '-'}
             </span>
-        </id>
+        </td>
     );
 };
 
@@ -87,12 +87,12 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
                                 return (
                                     <tr key={game.id} className="hover:bg-gray-50">
                                         {/* game matchup */}
-                                        <td className="px-3 py-2 text-gray-700 whitespace-nowrap">
+                                        <td className="px-2 py-1 text-center text-gray-700 whitespace-nowrap">
                                             {team1} vs {team2}
                                         </td>
 
                                         {/* game result */}
-                                        <td className="px-3 py-2 text-center">
+                                        <td className="px-2 py-1 text-center">
                                             <span className="text-black font-bold text-sm">
                                                 {game.winner || '-'}
                                             </span>

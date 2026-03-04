@@ -2,7 +2,7 @@ import BracketRegion from './BracketRegion';
 
 // define Firebase tags for each bracket quadrant and their associated labels and display order
 const region_tags = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-const region_labels = {
+export const region_labels = {
     'top-left': 'Top Left',
     'top-right': 'Top Right',
     'bottom-right': 'Bottom Right',

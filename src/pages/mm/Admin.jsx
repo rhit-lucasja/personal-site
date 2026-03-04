@@ -3,10 +3,11 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import PicksForm from '../../components/mm/PicksForm';
+import SeedingEntry from '../../components/mm/SeedingEntry';
 
 const Admin = () => {
     // states to track which tab of admin page is active
-    const [activeTab, setActiveTab] = useState('picks');
+    const [activeTab, setActiveTab] = useState('results');
     const navigate = useNavigate();
 
     // handle logout from admin page
@@ -31,18 +32,20 @@ const Admin = () => {
             {/* tab selection */}
             <div className="flex gap-4 border-b border-gray-200">
                 <button onClick={() => setActiveTab('picks')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'picks' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
-                    Picks Entry
+                    Enter Picks
                 </button>
-                <button onClick={() => setActiveTab('bracket')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'bracket' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
-                    Bracket Setup
+                <button onClick={() => setActiveTab('results')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'results' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
+                    Update Results
+                </button>
+                <button onClick={() => setActiveTab('setup')} className={`pb-2 px-1 text-sm transition-colors cursor-pointer ${activeTab === 'setup' ? 'border-b-2 border-red-900 text-red-900' : 'text-gray-500 hover:text-gray-700'}`}>
+                    Setup Bracket
                 </button>
             </div>
 
             {/* tab content */}
             {activeTab === 'picks' && <PicksForm />}
-            {activeTab === 'bracket' && (
-                <p className="text-black">Bracket setup coming soon.</p>
-            )}
+            {activeTab === 'results' && <p className="text-black">Results update coming soon.</p>}
+            {activeTab === 'setup' && <SeedingEntry />}
 
         </div>
     );

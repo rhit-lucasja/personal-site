@@ -129,3 +129,20 @@ export const getMatchup = (picks, gameID, bracketGames) => {
         picks[opt2] || null
     ];
 };
+
+// gets the proper order for Firestore {document, field} pairs so that the original 64 seeds can be input
+export const getSeedingOrder = () => {
+    const order = [];
+    const regional_offsets = [0, 45, 15, 30]; // top-to-bottom, then left-to-right
+    // iterate through each region
+    for (let i = 0; i < 4; i++) {
+        // iterate through each region's 1st round games
+        const offset = regional_offsets[i];
+        for (let num = 1; num <= 8; num++) {
+            const gameID = `game${String(offset + num).padStart(2, '0')}`;
+            order.push({ gameID, field: 'team1' });
+            order.push({ gameID, field: 'team2' });
+        }
+    }
+    return order;
+};

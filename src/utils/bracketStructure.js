@@ -1,6 +1,6 @@
 // returns the subsequent game to that with given gameID
 //   (i.e. the game in which the winner of gameID will play)
-const getNextGame = (gameID) => {
+export const getNextGame = (gameID) => {
     // extract numerical id for the given game
     const num = parseInt(gameID.replace('game', ''));
 
@@ -145,4 +145,21 @@ export const getSeedingOrder = () => {
         }
     }
     return order;
+};
+
+// determines whether a given game feeds into team1 or team2 of the next game
+export const getNextPosition = (gameID) => {
+    // find numerical ID of the given game
+    const num = parseInt(gameID.replace('game', ''));
+
+    // championship has no next game
+    if (num === 63) return null;
+
+    // else get the next game's ID
+    const nextID = getNextGame(gameID);
+    if (!nextID) return null; // couldn't find next game ID
+
+    // get first team of parent's matchup, see if matches this game or not
+    const [opt1] = getPreviousGames(nextID);
+    return opt1 === gameID ? "team1" : "team2";
 };

@@ -4,6 +4,7 @@ import { auth } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 import PicksForm from '../../components/mm/PicksForm';
 import SeedingEntry from '../../components/mm/SeedingEntry';
+import BracketUpdate from '../../components/mm/BracketUpdate';
 
 const Admin = () => {
     // states to track which tab of admin page is active
@@ -44,7 +45,7 @@ const Admin = () => {
 
             {/* tab content */}
             {activeTab === 'picks' && <PicksForm />}
-            {activeTab === 'results' && <p className="text-black">Results update coming soon.</p>}
+            {activeTab === 'results' && <BracketUpdate />}
             {activeTab === 'setup' && <SeedingEntry />}
 
         </div>

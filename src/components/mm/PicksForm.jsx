@@ -59,7 +59,7 @@ const PicksForm = () => {
         setSaving(true); // flag that we're in process of writing to Firebase
         try {
             await updateDoc(doc(db, 'participants', selectedParticipant), {picks});
-            alert(`Picks submitted for ${selectedParticipant.name}!`);
+            alert(`Picks submitted successfully!`);
         } catch (err) {
             console.error(err);
             alert('Error saving picks.');

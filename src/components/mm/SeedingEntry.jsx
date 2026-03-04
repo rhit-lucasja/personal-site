@@ -23,6 +23,12 @@ const SeedingEntry = () => {
 
     // handle submission of team names
     const handleSubmit = async () => {
+        // confirmation window to prevent accidental bracket reset
+        const confirmed = window.confirm(
+            "Submitting this form will reset the entire bracket. Do you want to proceed?"
+        );
+        if (!confirmed) return;
+
         setSaving(true); // so no conflicting submissions
         try {
             // group entries by gameID according to established order

@@ -69,7 +69,7 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
                         {/* header row of table */}
                         <thead className="bg-gray-50 border-t border-gray-200">
                             <tr>
-                                <th className="px-3 py-2 text-left text-gray-500 font-bold">Game</th>
+                                <th className="px-3 py-2 text-center text-gray-500 font-bold">Game</th>
                                 <th className="px-3 py-2 text-center text-gray-500 font-bold">Result</th>
                                 {participantList.map(p => (
                                     <th key={p.id} className="px-3 py-2 text-center text-gray-500 font-bold whitespace-nowrap">
@@ -115,7 +115,7 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
 
 const Picks = () => {
     // track state of games, participants, and page loading
-    const [games, setGame] = useState({});
+    const [games, setGames] = useState({});
     const [participants, setParticipants] = useState({});
     const [loading, setLoading] = useState(true);
 

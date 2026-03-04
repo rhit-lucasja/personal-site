@@ -56,10 +56,18 @@ const PicksForm = () => {
     // handler for submitting the picks form
     const handleSubmit = async () => {
         if (!selectedParticipant) return; // if no one selected then can't update
+
+        // confirmation window to prevent accidental picks reset
+        const name = participants[selectedParticipant]?.name;
+        const confirmed = window.confirm(
+            `This will reset all of ${name}'s picks. Do you want to proceed?`
+        );
+        if (!confirmed) return;
+
         setSaving(true); // flag that we're in process of writing to Firebase
         try {
             await updateDoc(doc(db, 'participants', selectedParticipant), {picks});
-            alert(`Picks submitted successfully!`);
+            alert(`Submitted picks for ${name}!`);
         } catch (err) {
             console.error(err);
             alert('Error saving picks.');

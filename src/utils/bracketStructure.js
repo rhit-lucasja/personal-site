@@ -163,3 +163,27 @@ export const getNextPosition = (gameID) => {
     const [opt1] = getPreviousGames(nextID);
     return opt1 === gameID ? "team1" : "team2";
 };
+
+// returns a set of all eliminated teams
+export const getEliminatedTeams = (games) => {
+    const eliminated = new Set();
+    Object.values(games).forEach(game => {
+        if (game.winner && game.team1 && game.team2) {
+            // determine loser of the given game and add to set
+            const loser = game.winner === game.team1? game.team2 : game.team1;
+            eliminated.add(loser);
+        }
+    });
+    return eliminated;
+};
+
+// gets whether a certain pick is correct, incorrect, or pending on a given game
+export const getPickStatus = (pick, winner, eliminated) => {
+    // game already played - easy to determine if right/wrong pick
+    if (winner) {
+        return pick === winner ? 'correct' : 'incorrect';
+    }
+    // game not played - see if pick is even possible for matchup
+    if (eliminated.has(pick)) return 'incorrect';
+    return 'pending';
+};

@@ -7,7 +7,7 @@ export const getNextGame = (gameID) => {
     // elite eight -> final four
     if (num === 15) return 'game61';
     if (num === 30) return 'game62';
-    if (num === 45) return 'game63';
+    if (num === 45) return 'game62';
     if (num === 60) return 'game61';
 
     // final four -> championship

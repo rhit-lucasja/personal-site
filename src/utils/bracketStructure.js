@@ -187,3 +187,30 @@ export const getPickStatus = (pick, winner, eliminated) => {
     if (eliminated.has(pick)) return 'incorrect';
     return 'pending';
 };
+
+// calculates current and possible point totals for a given participant
+export const calculateScores = (picks, games, eliminated) => {
+    // track current total and possible total
+    let current = 0;
+    let possible = 0;
+
+    // iterate through games and determine status of pick
+    Object.values(games).forEach(game => {
+        const pick = picks?.[game.id];
+        if (!pick) return; // no pick for the given game
+
+        // game is worth {round_number} many points
+        const pts = game.round;
+        // correct, incorrect, or pending
+        const status = getPickStatus(pick, game.winner, eliminated);
+
+        if (status === "correct") {
+            current += pts;
+            possible += pts;
+        } else if (status === "pending") {
+            possible += pts;
+        }
+    });
+
+    return { current, possible };
+};

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getEliminatedTeams, getPickStatus } from '../../utils/bracketStructure';
 import upArrow from '../../assets/up.jpg';
 import downArrow from '../../assets/down.jpg';
@@ -71,52 +72,54 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
             </button>
 
             {/* accordion section content*/}
-            {isOpen && (
-                <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                        {/* header row of table */}
-                        <thead className="bg-gray-100 border-y border-gray-400">
-                            <tr>
-                                <th className="px-3 py-2 text-center text-gray-600 font-bold">Game</th>
-                                <th className="px-3 py-2 text-center text-gray-600 font-bold">Result</th>
-                                {participantList.map(p => (
-                                    <th key={p.id} className="px-3 py-2 text-center text-gray-600 font-bold whitespace-nowrap">
-                                        {p.name}
-                                    </th>
-                                ))}
-                            </tr>
-                        </thead>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div className="overflow-y-hidden overflow-x-auto" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: 'easeInOut' }}>
+                        <table className="w-full text-sm">
+                            {/* header row of table */}
+                            <thead className="bg-gray-100 border-y border-gray-400">
+                                <tr>
+                                    <th className="px-3 py-2 text-center text-gray-600 font-bold">Game</th>
+                                    <th className="px-3 py-2 text-center text-gray-600 font-bold">Winner</th>
+                                    {participantList.map(p => (
+                                        <th key={p.id} className="px-3 py-2 text-center text-gray-600 font-bold whitespace-nowrap">
+                                            {p.name}
+                                        </th>
+                                    ))}
+                                </tr>
+                            </thead>
 
-                        {/* table rows */}
-                        <tbody className="divide-y divide-gray-300">
-                            {roundGames.map(game => {
-                                const team1 = game.team1 || "TBD";
-                                const team2 = game.team2 || "TBD";
-                                return (
-                                    <tr key={game.id} className="hover:bg-gray-100">
-                                        {/* game matchup */}
-                                        <td className="px-2 py-1 text-center text-gray-600 whitespace-nowrap">
-                                            {team1} vs {team2}
-                                        </td>
+                            {/* table rows */}
+                            <tbody className="divide-y divide-gray-300">
+                                {roundGames.map(game => {
+                                    const team1 = game.team1 || "TBD";
+                                    const team2 = game.team2 || "TBD";
+                                    return (
+                                        <tr key={game.id} className="hover:bg-gray-100">
+                                            {/* game matchup */}
+                                            <td className="px-2 py-1 text-center text-gray-600 whitespace-nowrap">
+                                                {team1} vs {team2}
+                                            </td>
 
-                                        {/* game result */}
-                                        <td className="px-2 py-1 text-center border-x border-gray-400">
-                                            <span className="text-gray-600 font-bold text-sm">
-                                                {game.winner || '-'}
-                                            </span>
-                                        </td>
+                                            {/* game result */}
+                                            <td className="px-2 py-1 text-center border-x border-gray-400">
+                                                <span className="text-gray-600 font-bold text-sm">
+                                                    {game.winner || '-'}
+                                                </span>
+                                            </td>
 
-                                        {/* participant picks */}
-                                        {participantList.map(p => (
-                                            <PickCell key={p.id} pick={p.picks?.[game.id]} winner={game.winner} eliminated={eliminated} />
-                                        ))}
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            )}
+                                            {/* participant picks */}
+                                            {participantList.map(p => (
+                                                <PickCell key={p.id} pick={p.picks?.[game.id]} winner={game.winner} eliminated={eliminated} />
+                                            ))}
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </table>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };

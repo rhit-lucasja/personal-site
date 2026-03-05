@@ -85,8 +85,8 @@ const Leaderboard = () => {
 
     // actually render leaderboard tables
     return (
-        <div className="min-w-lg max-w-2xl mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row lg:flex-row gap-6">
+        <div className="w-full max-w-sm sm:max-w-2xl mx-auto px-4 py-8">
+            <div className="flex flex-col sm:flex-row gap-6">
                 <LeaderboardTable title="Current Standings" participants={scored} sortKey="current" />
                 <LeaderboardTable title="Possible Totals" participants={scored} sortKey="possible" />
             </div>

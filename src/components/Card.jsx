@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Bullet from './Bullet'
-import upArrow from '../assets/up.jpg'
-import upArrowHover from '../assets/up_hover.jpg'
-import downArrow from '../assets/down.jpg'
-import downArrowHover from '../assets/down_hover.jpg'
+import Bullet from './Bullet';
+import upArrow from '../assets/up.jpg';
+import upArrowHover from '../assets/up_hover.jpg';
+import downArrow from '../assets/down.jpg';
+import downArrowHover from '../assets/down_hover.jpg';
 
 const Card = ({ title, tldr, intro, body, img }) => {
     

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { getEliminatedTeams, getPickStatus } from '../../utils/bracketStructure';
+import upArrow from '../../assets/up.jpg';
+import downArrow from '../../assets/down.jpg';
 
 const rounds = [
     { round: 1, label: "Round of 64" },
@@ -26,9 +28,9 @@ const PickCell = ({ pick, winner, eliminated }) => {
     // get pick status given game result
     const status = getPickStatus(pick, winner, eliminated);
     const styles = {
-        correct: 'bg-green-100 text-black',
-        incorrect: 'bg-red-100 text-black',
-        pending: 'bg-gray-100 text-gray-300'
+        correct: 'bg-green-200 text-green-700',
+        incorrect: 'bg-red-200 text-red-700',
+        pending: 'bg-gray-200 text-gray-700'
     };
 
     return (
@@ -50,16 +52,22 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
     // get list of participants
     const participantList = Object.values(participants);
 
+    // determine status of arrow to expand/collapse
+    let arrow;
+    if (isOpen) {
+        arrow = upArrow;
+    } else {
+        arrow = downArrow;
+    }
+
     return (
         <div className="border border-gray-200 rounded-xl overflow-hidden">
             {/* accordion section header */}
-            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex justify-between items-center px-6 py-4 bg-white cursor-pointer hover:bg-gray-50 transition-colors">
+            <button onClick={() => setIsOpen(!isOpen)} className="w-full flex justify-between items-center px-6 py-4 bg-white cursor-pointer hover:bg-gray-100 transition-colors">
                 <h2 className="text-lg font-bold text-black">
                     {label}
                 </h2>
-                <span className="text-gray-400 text-xl">
-                    {isOpen? 'Collapse' : 'Expand'}
-                </span>
+                <img src={arrow} className="w-5 rounded-full" />
             </button>
 
             {/* accordion section content*/}
@@ -67,12 +75,12 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
                 <div className="overflow-x-auto">
                     <table className="w-full text-sm">
                         {/* header row of table */}
-                        <thead className="bg-gray-50 border-t border-gray-200">
+                        <thead className="bg-gray-100 border-y border-gray-400">
                             <tr>
-                                <th className="px-3 py-2 text-center text-gray-500 font-bold">Game</th>
-                                <th className="px-3 py-2 text-center text-gray-500 font-bold">Result</th>
+                                <th className="px-3 py-2 text-center text-gray-600 font-bold">Game</th>
+                                <th className="px-3 py-2 text-center text-gray-600 font-bold">Result</th>
                                 {participantList.map(p => (
-                                    <th key={p.id} className="px-3 py-2 text-center text-gray-500 font-bold whitespace-nowrap">
+                                    <th key={p.id} className="px-3 py-2 text-center text-gray-600 font-bold whitespace-nowrap">
                                         {p.name}
                                     </th>
                                 ))}
@@ -80,20 +88,20 @@ const RoundAccordion = ({ round, label, games, participants, defaultOpen, elimin
                         </thead>
 
                         {/* table rows */}
-                        <tbody className="divide-y divide-gray-100">
+                        <tbody className="divide-y divide-gray-300">
                             {roundGames.map(game => {
                                 const team1 = game.team1 || "TBD";
                                 const team2 = game.team2 || "TBD";
                                 return (
-                                    <tr key={game.id} className="hover:bg-gray-50">
+                                    <tr key={game.id} className="hover:bg-gray-100">
                                         {/* game matchup */}
-                                        <td className="px-2 py-1 text-center text-gray-700 whitespace-nowrap">
+                                        <td className="px-2 py-1 text-center text-gray-600 whitespace-nowrap">
                                             {team1} vs {team2}
                                         </td>
 
                                         {/* game result */}
-                                        <td className="px-2 py-1 text-center">
-                                            <span className="text-black font-bold text-sm">
+                                        <td className="px-2 py-1 text-center border-x border-gray-400">
+                                            <span className="text-gray-600 font-bold text-sm">
                                                 {game.winner || '-'}
                                             </span>
                                         </td>

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { getEliminatedTeams, calculateScores } from '../../utils/bracketStructure';
+import bananas from '../../assets/bananas.jpg';
 
 const LeaderboardTable = ({ title, participants, sortKey }) => {
     // make a copy of the array, then sort in-place by given metric
@@ -28,6 +29,12 @@ const LeaderboardTable = ({ title, participants, sortKey }) => {
                             <tr key={p.id} className="hover:bg-gray-100">
                                 <td className="px-2 py-2 text-sm text-right font-bold text-gray-600 border-r border-gray-400 w-px whitespace-nowrap">{rank}</td>
                                 <td className="px-2 py-2 text-sm text-left text-black">{p.name}</td>
+                                {/* display trophy if in first place */}
+                                <td className="px-2 py-2">
+                                    {p[sortKey] === sorted[0][sortKey] &&
+                                        <img src={bananas} alt="bananas" className="max-w-1/5 h-auto float-right"/>
+                                    }
+                                </td>
                                 <td className="px-2 py-2 text-sm text-right text-black w-px whitespace-nowrap">{p[sortKey]}</td>
                             </tr>
                         );

@@ -4,7 +4,7 @@ import { db } from '../../firebase';
 import { getSeedingOrder } from '../../utils/bracketStructure';
 
 const order = getSeedingOrder();
-const region_labels = ["Top Left", "Bottom Left", "Top Right", "Bottom Right"];
+const region_labels = ["East", "South", "West", "Midwest"];
 const seeds = [1, 16, 8, 9, 5, 12, 4, 13, 6, 11, 3, 14, 7, 10, 2, 15];
 
 const SeedingEntry = () => {

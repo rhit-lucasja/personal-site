@@ -3,10 +3,10 @@ import BracketRegion from './BracketRegion';
 // define Firebase tags for each bracket quadrant and their associated labels and display order
 const region_tags = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
 export const region_labels = {
-    'top-left': 'Top Left',
-    'top-right': 'Top Right',
-    'bottom-right': 'Bottom Right',
-    'bottom-left': 'Bottom Left'
+    'top-left': 'East',
+    'top-right': 'West',
+    'bottom-right': 'Midwest',
+    'bottom-left': 'South'
 };
 const region_order = {
     'top-left': 'order-1 lg:order-1',

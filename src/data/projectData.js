@@ -13,8 +13,9 @@ export const projects = [
         summary: 'possibly my favorite',
         description: 'so many details',
         tech: ['React', 'TypeScript', 'Java', 'Javalin', 'PostgreSQL'],
-        github: 'GitHub',
-        live: 'host site',
+        github: null,
+        live: 'https://inventory.binaryheart.org',
+        thumbnail: null,
         images: []
     },
     {
@@ -23,8 +24,9 @@ export const projects = [
         summary: 'a basic summary',
         description: 'more info',
         tech: ['Python', 'Qiskit'],
-        github: 'Github',
-        live: 'host',
+        github: null,
+        live: null,
+        thumbnail: null,
         images: []
     },
     {
@@ -33,8 +35,9 @@ export const projects = [
         summary: 'summary',
         description: 'description',
         tech: ['React', 'JavaScript', 'Tailwind', 'Firebase'],
-        github: 'Github link',
-        live: 'host',
+        github: null,
+        live: 'https://jack-lucas-site.vercel.app/mm/bracket',
+        thumbnail: null,
         images: []
     },
     {
@@ -43,8 +46,9 @@ export const projects = [
         summary: 'summarizing here',
         description: 'more to say',
         tech: ['Verilog', 'RISC-V Assembly'],
-        github: 'Github',
-        live: 'host link',
+        github: null,
+        live: null,
+        thumbnail: null,
         images: []
     },
     {
@@ -53,9 +57,10 @@ export const projects = [
         summary: 'a basic summary',
         description: 'more info for later',
         tech: ['C', 'RISC-V Assembly', 'xv6'],
-        github: 'Github',
-        live: 'host link',
-        images: [osTestsRun]
+        github: null,
+        live: null,
+        thumbnail: null,
+        images: [osUnbuffered, osTests, osTestsRun]
     },
     {
         id: 'project-two',
@@ -63,9 +68,10 @@ export const projects = [
         summary: 'a basic summary',
         description: 'more info for later',
         tech: ['Python', 'NumPy', 'Matplotlib'],
-        github: 'Github',
-        live: 'host link',
-        images: [xorEst]
+        github: null,
+        live: null,
+        thumbnail: null,
+        images: [xorEst, xorCost, xorAcc]
     },
     {
         id: 'project-one',
@@ -73,8 +79,9 @@ export const projects = [
         summary: 'a basic summary',
         description: 'Lots of info here to be filled out later',
         tech: ['Java', 'Swing'],
-        github: 'GitHub link',
-        live: 'host link',
-        images: [bonfirHome]
+        github: null,
+        live: null,
+        thumbnail: bonfirHome,
+        images: []
     },
 ];

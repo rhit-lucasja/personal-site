@@ -1,5 +1,10 @@
-import bonfirHome from '../assets/projects/bonfir_home.png'
-import xorGuess from '../assets/projects/xor_est.png'
+import bonfirHome from '../assets/projects/bonfir_home.png';
+import xorEst from '../assets/projects/xor_est.png';
+import xorAcc from '../assets/projects/xor_acc.png';
+import xorCost from '../assets/projects/xor_cost.png';
+import osUnbuffered from '../assets/projects/os_unbuffered.png';
+import osTests from '../assets/projects/os_tests.png';
+import osTestsRun from '../assets/projects/os_tests_run.png';
 
 export const projects = [
     {
@@ -50,7 +55,7 @@ export const projects = [
         tech: ['C', 'RISC-V Assembly', 'xv6'],
         github: 'Github',
         live: 'host link',
-        images: []
+        images: [osTestsRun]
     },
     {
         id: 'project-two',
@@ -60,7 +65,7 @@ export const projects = [
         tech: ['Python', 'NumPy', 'Matplotlib'],
         github: 'Github',
         live: 'host link',
-        images: [xorGuess]
+        images: [xorEst]
     },
     {
         id: 'project-one',

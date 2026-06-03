@@ -13,9 +13,12 @@ const Projects = () => {
                 Projects
             </h1>
 
-            <h2 className="text-center text-3xl font-bold text-black mb-8">
-                *** PROJECT PAGE CURRENTLY UNDER CONSTRUCTION ***
-            </h2>
+            <div className="text-center text-lg text-black mb-8">
+                <h2 className="text-3xl font-bold">
+                    *** PROJECT PAGE CURRENTLY UNDER CONSTRUCTION ***
+                </h2>
+                <i>*** Estimated completion by June 6th, 2026 ***</i>
+            </div>
 
             {/* grid of project overview cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

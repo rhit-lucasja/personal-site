@@ -13,6 +13,10 @@ const Projects = () => {
                 Projects
             </h1>
 
+            <h2 className="text-center text-3xl font-bold text-black mb-8">
+                *** PROJECT PAGE CURRENTLY UNDER CONSTRUCTION ***
+            </h2>
+
             {/* grid of project overview cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map(project => (

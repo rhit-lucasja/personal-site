@@ -1,3 +1,6 @@
+import bonfirHome from '../assets/projects/bonfir_home.png'
+import xorGuess from '../assets/projects/xor_est.png'
+
 export const projects = [
     {
         id: 'project-seven',
@@ -57,7 +60,7 @@ export const projects = [
         tech: ['Python', 'NumPy', 'Matplotlib'],
         github: 'Github',
         live: 'host link',
-        images: ['src/assets/projects/xor_est.png']
+        images: [xorGuess]
     },
     {
         id: 'project-one',
@@ -67,6 +70,6 @@ export const projects = [
         tech: ['Java', 'Swing'],
         github: 'GitHub link',
         live: 'host link',
-        images: ['src/assets/projects/bonfir_home.png']
+        images: [bonfirHome]
     },
 ];

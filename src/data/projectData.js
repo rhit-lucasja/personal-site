@@ -2,7 +2,6 @@ export const projects = [
     {
         id: 'project-one',
         title: 'Rose Bonfir',
-        category: 'Software Development',
         summary: 'a basic summary',
         description: 'Lots of info here to be filled out later',
         tech: ['Java', 'Swing'],
@@ -13,7 +12,6 @@ export const projects = [
     {
         id: 'project-two',
         title: 'XOR Neural Network',
-        category: 'Machine Learning',
         summary: 'a basic summary',
         description: 'more info for later',
         tech: ['Python', 'NumPy', 'Matplotlib'],
@@ -24,7 +22,6 @@ export const projects = [
     {
         id: 'project-three',
         title: 'xv6 Multithreading',
-        category: 'Systems Programming',
         summary: 'a basic summary',
         description: 'more infor for later',
         tech: ['C', 'RISC-V Assembly', 'xv6'],

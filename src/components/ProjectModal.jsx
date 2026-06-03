@@ -5,7 +5,7 @@ const ProjectModal = ({ project, onClose }) => {
     const [currentImage, setCurrentImage] = useState(0);
 
     // extract info to display on modal
-    const { title, category, description, tech, github, live, images } = project;
+    const { title, description, tech, github, live, images } = project;
     const hasMultipleImages = (images.length > 1);
 
     // close on esc key, rotate images on arrows

@@ -51,10 +51,10 @@ const ProjectModal = ({ project, onClose }) => {
                                 {hasMultipleImages && (
                                     <>
                                         <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors">
-                                            ...
+                                            &#11164;
                                         </button>
                                         <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors">
-                                            ...
+                                            &#11166;
                                         </button>
                                     </>
                                 )}

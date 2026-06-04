@@ -103,7 +103,7 @@ export const projects = [
     },
     {
         id: 'project-one',
-        title: 'Rose Bonfir (Oct-Nov 2024)',
+        title: 'Rose Bonfir',
         summary: 'An object-oriented arcade game based on Jetpac (1983)',
         description: 'Rose Bonfir, a Rose-Hulman-themed spinoff developed by myself, Nakul Mital, and Xingzhao An, puts you in control of Rosie, the beloved mascot, who must use her jetpack to pick up pallets and fuel for the iconic homecoming bonfire. Along the way, she must avoid and disable enemy drones by hacking them with binary code.',
         feature: 'My favorite additional feature was the Level Editor, which lets users arrange the bonfire, Rosie, and multiple platforms into a custom layout. Users can then save, load, and play their custom levels from the level selection menu.',

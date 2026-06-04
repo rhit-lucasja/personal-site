@@ -12,6 +12,9 @@ import osUnbuffered from '../assets/projects/os_unbuffered.png';
 import osTests from '../assets/projects/os_tests.png';
 import osTestsRun from '../assets/projects/os_tests_run.png';
 import cpuCover from '../assets/projects/cpu_cover.jpg';
+import cpuInstrFormat from '../assets/projects/cpu_instr_format.png';
+import cpuDatapath from '../assets/projects/cpu_datapath.png';
+import cpuUses from '../assets/projects/cpu_uses.png';
 import shorCover from '../assets/projects/shor_cover.jpg';
 import mmCover from '../assets/projects/mm_cover.jpg';
 import bhCover from '../assets/projects/bh_cover.png';
@@ -62,16 +65,16 @@ export const projects = [
     {
         id: 'project-four',
         title: 'Verilog Processor Design (2025)',
-        summary: 'summarizing here',
-        description: 'so many details',
+        summary: 'A new RISC-V instruction for simultaneous move operations',
+        description: 'After implementing a RISC-V pipelined processor using Verilog, Tal Belkind, Nakul Mital, and I created a new instruction: \"dad\". This instruction, which fits into the standard 32 bits, allows a program to move values from two specified registers into two new registers simultaneously, which is particularly useful for saving registers before procedure calls and for swapping registers in just one instruction.',
         feature: null,
         design: null,
-        results: null,
+        results: 'Our new instruction adds only a few extra wires and a single write head to the processor. It does not incur any additional stalls, either. Not to mention, it improves the execution time of our pipelined processor by 29% for swaps and 17% for procedure calls with more than one argument!',
         tech: ['Verilog', 'RISC-V'],
         github: null,
         live: null,
         thumbnail: cpuCover,
-        images: []
+        images: [cpuInstrFormat, cpuDatapath, cpuUses]
     },
     {
         id: 'project-three',

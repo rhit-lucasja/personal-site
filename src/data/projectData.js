@@ -16,6 +16,9 @@ import cpuInstrFormat from '../assets/projects/cpu_instr_format.png';
 import cpuDatapath from '../assets/projects/cpu_datapath.png';
 import cpuUses from '../assets/projects/cpu_uses.png';
 import shorCover from '../assets/projects/shor_cover.jpg';
+import shorCircuit from '../assets/projects/shor_circuit.png';
+import shorSoln3 from '../assets/projects/shor_soln3.png';
+import shorSoln5 from '../assets/projects/shor_soln5.png';
 import mmCover from '../assets/projects/mm_cover.jpg';
 import bhCover from '../assets/projects/bh_cover.png';
 
@@ -52,15 +55,15 @@ export const projects = [
         id: 'project-five',
         title: 'Shor\'s DLP Simulation (2026)',
         summary: 'A quantum algorithm for solving the discrete log problem',
-        description: null,
+        description: 'Given g, x, and p, how do you solve for r in g^r = x (mod p)? For large enough p, this "discrete log problem" is too hard for a classical computer to solve in a reasonable amount of time. Because of its supposed difficulty, the DLP forms the basis for modern cryptographic schemes, such as DSA (digital signature algorithm). Even Bitcoin relies on its security! In this project, I used Qiskit, a quantum Python library shipped by IBM, to implement and simulate Shor\'s Algorithm, which can solve the DLP in polynomial time.',
         feature: null,
         design: null,
-        results: null,
+        results: 'Shor\'s Algorithm for the DLP uses three quantum registers, each of which much be large enough to represent p unique states. My circuit entangles these three registers, then applies the Inverse Quantum Fourier Transform to the first two registers and measures them. Upon simulation, my circuit could solve any DLP with g=3 and p=7 without fail! Obviously, Shor\'s Algorithm must break the DLP for much larger parameters to be of any effect, but this would require thousands of logical qubits (as of early 2025, even the best quantum labs had fewer than 30). ',
         tech: ['Python', 'Qiskit'],
         github: 'https://github.com/rhit-lucasja/shors-dlp',
         live: null,
         thumbnail: shorCover,
-        images: []
+        images: [shorCircuit, shorSoln3, shorSoln5]
     },
     {
         id: 'project-four',

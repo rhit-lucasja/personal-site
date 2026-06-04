@@ -98,13 +98,23 @@ const ProjectModal = ({ project, onClose }) => {
                     {(github || live) && (
                         <div className="flex gap-4 pt-2">
                             {github && (
-                                <a href={github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                <a href={github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2 py-2 rounded-lg text-sm text-white bg-red-900 hover:bg-red-400 transition-colors">
                                     GitHub
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 fill-none stroke-white stroke-2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
                                 </a>
                             )}
                             {live && (
-                                <a href={live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-lg text-sm hover:bg-gray-700 transition-colors">
+                                <a href={live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 px-2 py-2 rounded-lg text-sm text-white bg-red-900 hover:bg-red-400 transition-colors">
                                     Live Site
+                                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" className="w-4 h-4 fill-none stroke-white stroke-2">
+                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                        <polyline points="15 3 21 3 21 9" />
+                                        <line x1="10" y1="14" x2="21" y2="3"/>
+                                    </svg>
                                 </a>
                             )}
                         </div>

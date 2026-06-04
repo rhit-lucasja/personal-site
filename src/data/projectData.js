@@ -29,7 +29,7 @@ export const projects = [
         design: null,
         results: null,
         tech: ['React', 'TypeScript', 'Java', 'Javalin', 'PostgreSQL'],
-        github: null,
+        github: 'https://github.com/BinaryHeartUS/Inventory-System',
         live: 'https://inventory.binaryheart.org',
         thumbnail: bhCover,
         images: []
@@ -43,7 +43,7 @@ export const projects = [
         design: null,
         results: null,
         tech: ['React', 'JavaScript', 'Tailwind', 'Firebase'],
-        github: null,
+        github: 'https://github.com/rhit-lucasja/personal-site',
         live: 'https://jack-lucas-site.vercel.app/mm/bracket',
         thumbnail: mmCover,
         images: []
@@ -57,7 +57,7 @@ export const projects = [
         design: null,
         results: null,
         tech: ['Python', 'Qiskit'],
-        github: null,
+        github: 'https://github.com/rhit-lucasja/shors-dlp',
         live: null,
         thumbnail: shorCover,
         images: []

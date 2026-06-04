@@ -35,7 +35,7 @@ const ProjectModal = ({ project, onClose }) => {
                             {title}
                         </h2>
                     </div>
-                    <button onClick={onClose} className="text-gray-400 hover:text-gray-700 transition-colors text-3xl cursor-pointer">
+                    <button onClick={onClose} className="text-gray-400 hover:text-red-900 transition-colors text-3xl cursor-pointer">
                         &times;
                     </button>
                 </div>
@@ -51,10 +51,10 @@ const ProjectModal = ({ project, onClose }) => {
                                 {/* control arrows */}
                                 {hasMultipleImages && (
                                     <>
-                                        <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors">
+                                        <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-red-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors cursor-pointer">
                                             &#11164;
                                         </button>
-                                        <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors">
+                                        <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-red-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors cursor-pointer">
                                             &#11166;
                                         </button>
                                     </>
@@ -86,7 +86,7 @@ const ProjectModal = ({ project, onClose }) => {
                             </h3>
                             <div className="flex flex-wrap gap-2">
                                 {tech.map(t => (
-                                    <span key={t} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                                    <span key={t} className="text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-full">
                                         {t}
                                     </span>
                                 ))}

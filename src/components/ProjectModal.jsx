@@ -73,7 +73,7 @@ const ProjectModal = ({ project, onClose }) => {
                     )}
 
                     {/* descriptions of project and features */}
-                    <ProjectSection title="Description" content={description} />
+                    <ProjectSection title="Overview" content={description} />
                     {feature && <ProjectSection title="Feature Spotlight" content={feature} />}
                     {design && <ProjectSection title="Design Spotlight" content={design} />}
                     {results && <ProjectSection title="Results" content={results} />}

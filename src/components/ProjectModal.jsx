@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import ProjectSection from '../components/ProjectSection';
 
 const ProjectModal = ({ project, onClose }) => {
     // carousel starts at 0th image by default
     const [currentImage, setCurrentImage] = useState(0);
 
     // extract info to display on modal
-    const { title, description, tech, github, live, images } = project;
+    const { title, description, feature, design, results, tech, github, live, images } = project;
     const hasMultipleImages = (images.length > 1);
 
     // close on esc key, rotate images on arrows
@@ -30,7 +31,7 @@ const ProjectModal = ({ project, onClose }) => {
                 {/* frozen header */}
                 <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-xl z-10">
                     <div className="flex items-center gap-3">
-                        <h2 className="text-xl font-bold text-black">
+                        <h2 className="text-2xl font-bold text-black">
                             {title}
                         </h2>
                     </div>
@@ -40,7 +41,7 @@ const ProjectModal = ({ project, onClose }) => {
                 </div>
 
                 {/* modal content */}
-                <div className="p-6 space-y-6">
+                <div className="p-6 space-y-4">
                     {/* image carousel */}
                     {images.length > 0 && (
                         <div className="space-y-2">
@@ -71,15 +72,16 @@ const ProjectModal = ({ project, onClose }) => {
                         </div>
                     )}
 
-                    {/* description of project */}
-                    <p className="text-gray-700 leading-relaxed">
-                        {description}
-                    </p>
+                    {/* descriptions of project and features */}
+                    <ProjectSection title="Description" content={description} />
+                    {feature && <ProjectSection title="Feature Spotlight" content={feature} />}
+                    {design && <ProjectSection title="Design Spotlight" content={design} />}
+                    {results && <ProjectSection title="Results" content={results} />}
 
                     {/* tools and software used */}
                     {tech.length > 0 && (
                         <div className="space-y-2">
-                            <h3 className="text-sm font-bold text-black">
+                            <h3 className="text-lg font-bold text-black">
                                 Tech Stack
                             </h3>
                             <div className="flex flex-wrap gap-2">

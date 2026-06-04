@@ -19,7 +19,7 @@ import bhCover from '../assets/projects/bh_cover.png';
 export const projects = [
     {
         id: 'project-seven',
-        title: 'BinaryHeart Inventory System',
+        title: 'BinaryHeart Inventory System (2026)',
         summary: 'possibly my favorite',
         description: 'more description',
         feature: null,
@@ -33,7 +33,7 @@ export const projects = [
     },
     {
         id: 'project-six',
-        title: 'March Madness Competition',
+        title: 'March Madness Competition (2026)',
         summary: 'summary',
         description: 'more to say',
         feature: null,
@@ -47,7 +47,7 @@ export const projects = [
     },
     {
         id: 'project-five',
-        title: 'Qiskit Shor DLP',
+        title: 'Qiskit Shor DLP (2026)',
         summary: 'a basic summary',
         description: 'longer description',
         feature: null,
@@ -61,7 +61,7 @@ export const projects = [
     },
     {
         id: 'project-four',
-        title: 'Verilog Processor Design',
+        title: 'Verilog Processor Design (2025)',
         summary: 'summarizing here',
         description: 'so many details',
         feature: null,
@@ -75,7 +75,7 @@ export const projects = [
     },
     {
         id: 'project-three',
-        title: 'xv6 Multithreading',
+        title: 'xv6 Multithreading (2025)',
         summary: 'A custom threading library for the xv6 operating system',
         description: 'Introducing rhthr, the palindromic and tongue-twisting threading library designed and developed by myself, Tal Belkind, and Oskar Steiger. With this library, any user program can create multiple threads, execute them in parallel (or as close to parallel as xv6 allows), and join threads upon completion.',
         feature: 'Threads share the same physical memory. Threads can also pass pointers between each other, accessing and updating data at specified addresses. Finally, any changes to one thread\'s pagetable propagate to all threads of the same process.',
@@ -89,7 +89,7 @@ export const projects = [
     },
     {
         id: 'project-two',
-        title: 'XOR Neural Network',
+        title: 'XOR Neural Network (2024)',
         summary: 'A fully connected neural network for the XOR dataset',
         description: 'During the summer of 2024, I studied the basics of machine learning by creating a neural network operating on the MNIST dataset. To reinforce my skills, I adapted the MNIST model to the XOR dataset. For each random input (x,y), the neural network should output 0 whenever x and y have the same sign and 1 when x and y have different signs.',
         feature: null,
@@ -103,7 +103,7 @@ export const projects = [
     },
     {
         id: 'project-one',
-        title: 'Rose Bonfir',
+        title: 'Rose Bonfir (2024)',
         summary: 'An object-oriented arcade game based on Jetpac (1983)',
         description: 'Rose Bonfir, a Rose-Hulman-themed spinoff developed by myself, Nakul Mital, and Xingzhao An, puts you in control of Rosie, the beloved mascot, who must use her jetpack to pick up pallets and fuel for the iconic homecoming bonfire. Along the way, she must avoid and disable enemy drones by hacking them with binary code.',
         feature: 'My favorite additional feature was the Level Editor, which lets users arrange the bonfire, Rosie, and multiple platforms into a custom layout. Users can then save, load, and play their custom levels from the level selection menu.',

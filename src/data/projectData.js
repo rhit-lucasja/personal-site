@@ -90,7 +90,7 @@ export const projects = [
     {
         id: 'project-two',
         title: 'XOR Neural Network',
-        summary: 'A fully connected neural network operating on the XOR dataset',
+        summary: 'A fully connected neural network for the XOR dataset',
         description: 'During the summer of 2024, I studied the basics of machine learning by creating a neural network operating on the MNIST dataset. To reinforce my skills, I adapted the MNIST model to the XOR dataset. For each random input (x,y), the neural network should output 0 whenever x and y have the same sign and 1 when x and y have different signs.',
         feature: null,
         design: null,

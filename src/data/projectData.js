@@ -25,6 +25,12 @@ import mmPicks from '../assets/projects/mm_picks.png';
 import mmAdmin from '../assets/projects/mm_admin.png';
 import mmStandings from '../assets/projects/mm_standings.png';
 import bhCover from '../assets/projects/bh_cover.png';
+import bhDashboard from '../assets/projects/bh_dashboard.png';
+import bhAddAsset from '../assets/projects/bh_add_asset.png';
+import bhDeviceList from '../assets/projects/bh_device_list.png';
+import bhDeviceDetails from '../assets/projects/bh_device_details.png';
+import bhPartsList from '../assets/projects/bh_parts_list.png';
+import bhGenerateReports from '../assets/projects/bh_generate_reports.png';
 
 export const projects = [
     {
@@ -39,7 +45,7 @@ export const projects = [
         github: 'https://github.com/BinaryHeartUS/Inventory-System',
         live: 'https://inventory.binaryheart.org',
         thumbnail: bhCover,
-        images: []
+        images: [bhDashboard, bhAddAsset, bhDeviceList, bhDeviceDetails, bhPartsList, bhGenerateReports]
     },
     {
         id: 'project-six',

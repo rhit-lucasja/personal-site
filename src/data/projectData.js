@@ -29,6 +29,7 @@ import bhDashboard from '../assets/projects/bh_dashboard.png';
 import bhAddAsset from '../assets/projects/bh_add_asset.png';
 import bhDeviceList from '../assets/projects/bh_device_list.png';
 import bhDeviceDetails from '../assets/projects/bh_device_details.png';
+import bhBarcode from '../assets/projects/bh_barcode.png';
 import bhPartsList from '../assets/projects/bh_parts_list.png';
 import bhGenerateReports from '../assets/projects/bh_generate_reports.png';
 
@@ -37,15 +38,15 @@ export const projects = [
         id: 'project-seven',
         title: 'BinaryHeart Inventory System (2026)',
         summary: 'A full stack web app to track a national nonprofit\'s assets',
-        description: null,
-        feature: null,
-        design: null,
-        results: null,
-        tech: ['React', 'TypeScript', 'Java', 'Javalin', 'PostgreSQL'],
+        description: 'Founded in 2016, BinaryHeart is a student-led 501(c)(3) nonprofit organization dedicated to bridging the digital divide through technology recycling and refurbishment. Tal Belkind, Hunter Snyder, and I, as officers for the fledgeling Rose-Hulman chapter, noticed that each of the seven chapters used separate, inconsistent, and high-maintenance inventory spreadsheets. To ease officer duties, as well as to improve BinaryHeart\'s ability to provide national audits and tax reports, we decided to develop an organization-wide inventory system. In just five weeks, we produced a comprehensive, secure, and user-friendly web application to track the inventory of all BinaryHeart chapters.',
+        feature: 'Every asset has a unique ID number. During a work session, an officer must be able to quickly look up any details and notes relevant to a particular asset. However, we did not want to require users to manually type an asset\'s ID number to retrieve its information. Instead, every chapter received a USB barcode scanner and thermal printer. Upon adding an asset to inventory, the web application generates a barcode, which the user can easily print on a sticker to attach to the item. When a user, from any page within the inventory website, scans a BinaryHeart sticker, the app automatically finds and displays all details and notes pertaining to that asset. Efficient, accurate, and user friendly!',
+        design: 'How many different machines across the national organization will need to use this web app? Even just Tal, Hunter, and I use different operating systems and/or distributions! To ensure a consistent development environment, and to eliminate the "it works on my machine" problem, we set up a multi-container Docker environment for our frontend, backend, database, and legacy data importer. Any developer can clone the repository and run "docker compose up --build" to get an accurate local representation of our app! This greatly smoothed out our development process, allowing us to focus on adding features without pesky machine-specific bugs!',
+        results: 'The Rose-Hulman chapter is already using this new inventory system, and I am proud to boast that its use is quickly being standardized across the national organization! Our web app will help streamline the operations of more than 100 BinaryHeart volunteers!',
+        tech: ['React', 'TypeScript', 'Java', 'Javalin', 'PostgreSQL', 'Docker', 'Swagger', 'OpenAPI'],
         github: 'https://github.com/BinaryHeartUS/Inventory-System',
         live: 'https://inventory.binaryheart.org',
         thumbnail: bhCover,
-        images: [bhDashboard, bhAddAsset, bhDeviceList, bhDeviceDetails, bhPartsList, bhGenerateReports]
+        images: [bhDashboard, bhAddAsset, bhDeviceList, bhDeviceDetails, bhBarcode, bhPartsList, bhGenerateReports]
     },
     {
         id: 'project-six',

@@ -20,6 +20,10 @@ import shorCircuit from '../assets/projects/shor_circuit.png';
 import shorSoln3 from '../assets/projects/shor_soln3.png';
 import shorSoln5 from '../assets/projects/shor_soln5.png';
 import mmCover from '../assets/projects/mm_cover.jpg';
+import mmBracket from '../assets/projects/mm_bracket.png';
+import mmPicks from '../assets/projects/mm_picks.png';
+import mmAdmin from '../assets/projects/mm_admin.png';
+import mmStandings from '../assets/projects/mm_standings.png';
 import bhCover from '../assets/projects/bh_cover.png';
 
 export const projects = [
@@ -41,15 +45,15 @@ export const projects = [
         id: 'project-six',
         title: 'March Madness Bracket Competition (2026)',
         summary: 'A full stack web app to moderate a family bracket competition',
-        description: null,
+        description: 'Since 2017, my family and I have competed to see who can fill out the best March Madness bracket. I used to track the results manually in an Excel spreadsheet, and I would provide regular email updates to my family. In 2026, I decided to make the results accessible through a live web application with a user-friendly interface.',
         feature: null,
         design: null,
-        results: null,
+        results: 'The full stack web application, which is part of this personal site, consists of a React and JavaScript frontend, which interacts directly with an underlying Google Firebase. Using Firebase authentication, I restricted access to the Admin Dashboard page so that only I can update game results and picks. Next year, I intend to use an NCAA API to update game results as they happen, without my intervention. Also, look forward to more stats, covering both the current tournament and previous years!',
         tech: ['React', 'JavaScript', 'Tailwind', 'Firebase'],
         github: 'https://github.com/rhit-lucasja/personal-site',
         live: 'https://jack-lucas-site.vercel.app/mm/bracket',
         thumbnail: mmCover,
-        images: []
+        images: [mmBracket, mmPicks, mmAdmin, mmStandings]
     },
     {
         id: 'project-five',

@@ -30,11 +30,9 @@ const ProjectModal = ({ project, onClose }) => {
             <div className="bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                 {/* frozen header */}
                 <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-xl z-10">
-                    <div className="flex items-center gap-3">
-                        <h2 className="text-2xl font-bold text-black">
-                            {title}
-                        </h2>
-                    </div>
+                    <h2 className="text-2xl font-bold text-black">
+                        {title}
+                    </h2>
                     <button onClick={onClose} className="text-gray-400 hover:text-red-900 transition-colors text-3xl cursor-pointer">
                         &times;
                     </button>
@@ -52,10 +50,14 @@ const ProjectModal = ({ project, onClose }) => {
                                 {hasMultipleImages && (
                                     <>
                                         <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-red-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors cursor-pointer">
-                                            &#11164;
+                                            <svg viewBox="0 0 100 100" stroke-linecap="round" stroke-linejoin="round" className="w-8 h-8 fill-none stroke-white stroke-6">
+                                                <polyline points="30 50 65 30 55 50 65 70 30 50" />
+                                            </svg>
                                         </button>
                                         <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-red-900/80 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors cursor-pointer">
-                                            &#11166;
+                                            <svg viewBox="0 0 100 100" stroke-linecap="round" stroke-linejoin="round" className="w-8 h-8 fill-none stroke-white stroke-6">
+                                                <polyline points="70 50 35 30 45 50 35 70 70 50" />
+                                            </svg>
                                         </button>
                                     </>
                                 )}

@@ -16,7 +16,7 @@ const ProjectCard = ({ project, onClick }) => {
 
             {/* content */}
             <div className="p-4 space-y-3">
-                <h2 className="text-lg font-bold text-gray-900">{title}</h2>
+                <h2 className="text-lg font-bold text-black">{title}</h2>
                 <p className="text-md text-gray-500 line-clamp-2">{summary}</p>
                 {tech.length > 0 && (
                     <div className="flex flex-wrap gap-2">

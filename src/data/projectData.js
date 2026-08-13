@@ -44,12 +44,12 @@ import idHistory from '../assets/projects/id/history.png';
 export const projects = [
     {
         id: 'project-eight',
-        title: 'Ignis Divinus Scripture Search Engine (2026)',
+        title: 'Ignis Divinus Scripture Reader (2026)',
         summary: 'A full-stack web app for Bible search and study',
-        description: 'Coming soon!',
+        description: 'As a college student, frequent travel makes transporting a physical Bible difficult. I built Ignis Divinus to provide accessible, pocket-sized Scripture to the modern traveler. This full-stack web app not only offers multiple Bible translations through a user-friendly reader, but also enhances Bible study through its AI-powered search engine. Not to mention, you can bookmark and annotate verses, just as you could with a physical copy.',
         feature: 'Semantic Search! More details later...',
         design: 'CI/CD! More details later...',
-        results: 'Coming soon!',
+        results: 'I built Ignis Divinus from scratch to learn intimately about each step of the software development cycle. After two months of initial development, I now use Ignis Divinus nearly every day. I\'m constantly working to improve the app, whether through increased accessibility, additional features, or smoother functionality. At this time, I do not plan to scale the app or campaign for its widespread use, though the site is publicly accessible.',
         tech: ['Next.js', 'TypeScript', 'PostgreSQL + pgvector', 'tRPC', 'Ollama', 'Nomic AI', 'Prisma', 'Docker', 'GitHub Actions'],
         github: 'https://github.com/rhit-lucasja/bible-reader',
         live: 'https://ignis-divinus.vercel.app',

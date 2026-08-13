@@ -32,12 +32,34 @@ import bhDeviceDetails from '../assets/projects/bh/device_details.png';
 import bhBarcode from '../assets/projects/bh/barcode.png';
 import bhPartsList from '../assets/projects/bh/parts_list.png';
 import bhGenerateReports from '../assets/projects/bh/generate_reports.png';
+import idCover from'../assets/projects/id/cover.png';
+import idHome from '../assets/projects/id/home.png';
+import idTranslations from '../assets/projects/id/translations.png';
+import idReader from '../assets/projects/id/reader.png';
+import idSearch from '../assets/projects/id/search.png';
+import idBookmarkModal from '../assets/projects/id/bookmark_modal.png';
+import idBookmarks from '../assets/projects/id/bookmarks.png';
+import idHistory from '../assets/projects/id/history.png';
 
 export const projects = [
     {
+        id: 'project-eight',
+        title: 'Ignis Divinus Scripture Search Engine (2026)',
+        summary: 'A full-stack web app for Bible search and study',
+        description: 'Coming soon!',
+        feature: 'Semantic Search! More details later...',
+        design: 'CI/CD! More details later...',
+        results: 'Coming soon!',
+        tech: ['Next.js', 'TypeScript', 'PostgreSQL + pgvector', 'tRPC', 'Ollama', 'Nomic AI', 'Prisma', 'Docker', 'GitHub Actions'],
+        github: 'https://github.com/rhit-lucasja/bible-reader',
+        live: 'https://ignis-divinus.vercel.app',
+        thumbnail: idCover,
+        images: [idHome, idTranslations, idReader, idSearch, idBookmarkModal, idBookmarks, idHistory]
+    },
+    {
         id: 'project-seven',
         title: 'BinaryHeart Inventory System (2026)',
-        summary: 'A full stack web app to track a national nonprofit\'s assets',
+        summary: 'A full-stack web app to track a national nonprofit\'s assets',
         description: 'Founded in 2016, BinaryHeart is a student-led 501(c)(3) nonprofit organization dedicated to bridging the digital divide through technology recycling and refurbishment. Tal Belkind, Hunter Snyder, and I, as officers for the fledgeling Rose-Hulman chapter, noticed that each of the seven chapters used separate, inconsistent, and high-maintenance inventory spreadsheets. To ease officer duties, as well as to improve BinaryHeart\'s ability to provide national audits and tax reports, we decided to develop an organization-wide inventory system. In just five weeks, we produced a comprehensive, secure, and user-friendly web application to track the inventory of all BinaryHeart chapters.',
         feature: 'Every asset has a unique ID number. During a work session, an officer must be able to quickly look up any details and notes relevant to a particular asset. However, we did not want to require users to manually type an asset\'s ID number to retrieve its information. Instead, every chapter received a USB barcode scanner and thermal printer. Upon adding an asset to inventory, the web application generates a barcode, which the user can easily print on a sticker to attach to the item. When a user, from any page within the inventory website, scans a BinaryHeart sticker, the app automatically finds and displays all details and notes pertaining to that asset. Efficient, accurate, and user friendly!',
         design: 'How many different machines across the national organization will need to use this web app? Even just Tal, Hunter, and I use different operating systems and/or distributions! To ensure a consistent development environment, and to eliminate the "it works on my machine" problem, we set up a multi-container Docker environment for our frontend, backend, database, and legacy data importer. Any developer can clone the repository and run "docker compose up --build" to get an accurate local representation of our app! This greatly smoothed out our development process, allowing us to focus on adding features without pesky machine-specific bugs!',
